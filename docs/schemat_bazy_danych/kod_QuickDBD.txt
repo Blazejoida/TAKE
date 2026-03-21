@@ -1,0 +1,47 @@
+Wykladowca
+-
+id_wykladowcy PK int
+imie varchar(50)
+nazwisko varchar(50)
+tytul varchar(30)
+
+Przedmiot
+-
+id_przedmiotu PK int
+nazwa varchar(100)
+kod varchar(20)
+
+Student
+-
+id_studenta PK int
+nr_albumu varchar(20)
+
+BazaPytan
+-
+id_pytania_z_bazy PK int
+tresc text
+typ varchar(20)
+
+Ankieta
+-
+id_ankiety PK int
+tytul varchar(150)
+data_rozpoczecia date
+data_zakonczenia date
+id_wykladowcy int FK >- Wykladowca.id_wykladowcy
+id_przedmiotu int FK >- Przedmiot.id_przedmiotu
+
+Pytanie
+-
+id_pytania PK int
+kolejnosc int
+id_ankiety int FK >- Ankieta.id_ankiety
+id_pytania_z_bazy int FK >- BazaPytan.id_pytania_z_bazy
+
+Odpowiedz
+-
+id_odpowiedzi PK int
+wartosc_liczbowa int
+wartosc_tekstowa text
+id_studenta int FK >- Student.id_studenta
+id_pytania int FK >- Pytanie.id_pytania
