@@ -13,14 +13,22 @@ kod varchar(20)
 
 Student
 -
-id_studenta PK int
-nr_albumu varchar(20)
+nr_albumu PK varchar(20)
+imie varchar(50)
+nazwisko varchar(50)
 
 BazaPytan
 -
 id_pytania_z_bazy PK int
 tresc text
 typ varchar(20)
+id_opcji int FK >-< OpcjeOdpowiedzi.id_opcji
+
+OpcjeOdpowiedzi
+-
+id_opcji PK int
+tresc_opcji varchar(100)
+wartosc_punktowa int
 
 Ankieta
 -
@@ -30,6 +38,7 @@ data_rozpoczecia date
 data_zakonczenia date
 id_wykladowcy int FK >- Wykladowca.id_wykladowcy
 id_przedmiotu int FK >- Przedmiot.id_przedmiotu
+nr_albumu varchar(20) FK >-< Student.nr_albumu
 
 Pytanie
 -
@@ -41,7 +50,6 @@ id_pytania_z_bazy int FK >- BazaPytan.id_pytania_z_bazy
 Odpowiedz
 -
 id_odpowiedzi PK int
-wartosc_liczbowa int
 wartosc_tekstowa text
-id_studenta int FK >- Student.id_studenta
 id_pytania int FK >- Pytanie.id_pytania
+id_opcji int FK >- OpcjeOdpowiedzi.id_opcji
