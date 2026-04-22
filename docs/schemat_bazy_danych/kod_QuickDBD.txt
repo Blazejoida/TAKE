@@ -17,19 +17,6 @@ nr_albumu PK varchar(20)
 imie varchar(50)
 nazwisko varchar(50)
 
-BazaPytan
--
-id_pytania_z_bazy PK int
-tresc text
-typ varchar(20)
-id_opcji int FK >-< OpcjeOdpowiedzi.id_opcji
-
-OpcjeOdpowiedzi
--
-id_opcji PK int
-tresc_opcji varchar(100)
-wartosc_punktowa int
-
 Ankieta
 -
 id_ankiety PK int
@@ -43,13 +30,12 @@ nr_albumu varchar(20) FK >-< Student.nr_albumu
 Pytanie
 -
 id_pytania PK int
+tresc text
 kolejnosc int
 id_ankiety int FK >- Ankieta.id_ankiety
-id_pytania_z_bazy int FK >- BazaPytan.id_pytania_z_bazy
 
 Odpowiedz
 -
 id_odpowiedzi PK int
 wartosc_tekstowa text
 id_pytania int FK >- Pytanie.id_pytania
-id_opcji int FK >- OpcjeOdpowiedzi.id_opcji
