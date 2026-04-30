@@ -1,0 +1,44 @@
+erDiagram
+
+    WYKLADOWCA {
+        int id_wykladowcy PK
+        string imie
+        string nazwisko
+        string tytul
+    }
+
+    PRZEDMIOT {
+        int id_przedmiotu PK
+        string nazwa
+        string kod
+    }
+
+    STUDENT {
+        string nr_albumu PK
+        string imie
+        string nazwisko
+    }
+
+    ANKIETA {
+        int id_ankiety PK
+        string tytul
+        date data_rozpoczecia
+        date data_zakonczenia
+    }
+
+    PYTANIE {
+        int id_pytania PK
+        string tresc
+        int kolejnosc
+    }
+
+    ODPOWIEDZ {
+        int id_odpowiedzi PK
+        string wartosc_tekstowa
+    }
+
+    WYKLADOWCA ||--o{ ANKIETA : dotyczy
+    PRZEDMIOT ||--o{ ANKIETA : obejmuje
+    STUDENT ||--o{ ODPOWIEDZ : udziela
+    ANKIETA ||--o{ PYTANIE : zawiera
+    PYTANIE ||--o{ ODPOWIEDZ : posiada

@@ -25,7 +25,6 @@ data_rozpoczecia date
 data_zakonczenia date
 id_wykladowcy int FK >- Wykladowca.id_wykladowcy
 id_przedmiotu int FK >- Przedmiot.id_przedmiotu
-nr_albumu varchar(20) FK >-< Student.nr_albumu
 
 Pytanie
 -
@@ -39,3 +38,4 @@ Odpowiedz
 id_odpowiedzi PK int
 wartosc_tekstowa text
 id_pytania int FK >- Pytanie.id_pytania
+nr_albumu varchar(20) FK >- Student.nr_albumu
