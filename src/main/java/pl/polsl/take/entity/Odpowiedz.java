@@ -19,4 +19,8 @@ public class Odpowiedz {
     @ManyToOne
     @JoinColumn(name = "id_pytania", nullable = false)
     private Pytanie pytanie;
+    
+    @ManyToOne
+    @JoinColumn(name = "nr_albumu", nullable = false)
+    private Student student;
 }

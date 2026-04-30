@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
@@ -23,6 +24,7 @@ public class Wykladowca {
     @Column(length = 30)
     private String tytul;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "wykladowca")
     private List<Ankieta> ankiety;
 }

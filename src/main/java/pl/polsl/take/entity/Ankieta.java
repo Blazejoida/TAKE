@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
@@ -29,10 +30,7 @@ public class Ankieta {
     @JoinColumn(name = "id_przedmiotu")
     private Przedmiot przedmiot;
 
-    // ankieta może być wypełniana przez wielu studentów
-    @ManyToMany
-    private List<Student> studenci;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "ankieta", cascade = CascadeType.ALL)
     @OrderBy("kolejnosc ASC")
     private List<Pytanie> pytania;
